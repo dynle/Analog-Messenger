@@ -49,7 +49,7 @@ export default function ProfilePhoto() {
     const classes = useStyles();
     const [currentProfilePhoto, setCurrentProfilePhoto] = useState<string | undefined>("");
     const [dialogOpen, setDialogOpen] = useState(false);
-    const [uploadLoading, setUploadLoading] = useState(false);
+    const [uploadLoading, setUploadLoading] = useState(true);
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     const uid = authService.currentUser!.uid;
     const storageRef = storage.ref(`user_avatars`);
@@ -87,13 +87,9 @@ export default function ProfilePhoto() {
         docRef.get().then((doc) => {
             if (doc.exists) {
                 url = doc.data()!.avatarUrl;
-                if (url !== "") {
-                    setCurrentProfilePhoto(url);
-                    console.log("file existed");
-                } else {
-                    setCurrentProfilePhoto(undefined);
-                    console.log("file unexisted");
-                }
+                setCurrentProfilePhoto(url);
+                setUploadLoading(curr=>!curr);
+                console.log("file existed");
             } else {
                 console.log("No Doc");
             }
@@ -128,13 +124,12 @@ export default function ProfilePhoto() {
             .delete()
             .then(() => {
                 console.log("Deleted a file");
-            });
-        // let url = await storageRef.child(`default.png`).getDownloadURL();
+            }).catch((e)=>console.log("No profile photo"))
+        let url = await storageRef.child(`default.png`).getDownloadURL();
         docRef.update({
-            // avatarUrl: `${url}`,
-            avatarUrl: '',
+            avatarUrl: `${url}`,
         });
-        setCurrentProfilePhoto("");
+        setCurrentProfilePhoto(url);
         handleDialogClose();
     };
 
@@ -169,21 +164,16 @@ export default function ProfilePhoto() {
 
     return (
         <Box className={classes.boxStyle}>
-            {currentProfilePhoto ? (
-                <img
-                    src={currentProfilePhoto}
-                    className={classes.profilePhoto}
-                ></img>
-            ) : uploadLoading ? (
+            {uploadLoading ? (
                 <div className={classes.uploadLoading}>
                     <CircularProgress />
                 </div>
             ) : (
-                <div className={classes.noProfilePhoto}>
-                    <PersonIcon
-                        style={{ fontSize: "12em", color: "white" }}
-                    ></PersonIcon>
-                </div>
+                <img
+                    src={currentProfilePhoto}
+                    className={classes.profilePhoto}
+                    style={{background:'#D1D4D8'}}
+                ></img>
             )}
             <br/>
             <Button
@@ -213,7 +203,7 @@ export default function ProfilePhoto() {
                 onClose={handleSnackbarClose}
             >
                 <Alert severity="error">Please wait</Alert>
-                </Snackbar>
+            </Snackbar>
         </Box>
     );
 }

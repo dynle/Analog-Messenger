@@ -8,7 +8,7 @@ export const addUser = async (userName: string, userCountry: string) => {
     .doc(`${uid}`)
     .set({
       userName: userName,
-      avatarUrl: 'https://firebasestorage.googleapis.com/v0/b/analog-messenger.appspot.com/o/user_avatars%2Fdefault.png?alt=media&token=5574a227-19d2-4b3e-8d00-0806b73e6fba',
+      avatarUrl: 'https://firebasestorage.googleapis.com/v0/b/analog-messenger-f2e31.appspot.com/o/user_avatars%2Fdefault.png?alt=media&token=ce950844-c956-4c88-ab71-709af41d42d3',
       timezone: userCountry,
     })
     .catch((error) => {
