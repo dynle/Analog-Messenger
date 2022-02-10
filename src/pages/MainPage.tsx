@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useHistory } from 'react-router-dom';
 import Inbox from '../components/inbox/Inbox';
 import Profile from '../components/profile/Profile';
 import LockedPage from './LockedPage';
@@ -10,8 +10,10 @@ export const MainPageContext = createContext<any>({});
 
 export default function MainPage() {
   const [navToggle, setNavToggle] = useState(true);
+  const [currentUrl, setcurrentUrl] = useState('');
+  const history = useHistory();
+  console.log(history.location.pathname)
   
-
   return (
     <MainPageContext.Provider value={{navToggle, setNavToggle}}>
       <Grid container spacing={1}>

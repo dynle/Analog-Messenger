@@ -104,7 +104,6 @@ export default function LockedPage() {
       let canvas = document!.getElementById("canvas");
       let root = document!.getElementById("root");
       renderer!.domElement.remove();
-      root!.removeChild( renderer.domElement );
     }
   }, []);
 
