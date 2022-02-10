@@ -1,5 +1,16 @@
+.loadingPage{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 100vh;
+    font-size: 5vw;
+    justify-content: center;
+    align-items: center;
+}
+
 .loadingPercentage{
     position:relative;
+    font-size: 4vw;
 }
 
 .circle{

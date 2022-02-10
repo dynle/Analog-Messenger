@@ -12,7 +12,6 @@ export default function LockedPage() {
   const {setNavToggle} = useContext(MainPageContext);
   const [loadingPercent, SetLoadingPercent] = useState(0);
 
-
   useEffect(() => {
     setNavToggle(false);
     //Renderer
@@ -112,7 +111,7 @@ export default function LockedPage() {
     <Fragment>
     {isLoading ? (
       <div className ="loadingPage">
-          Please wait...
+          Loading...
         <div className="loadingPercentage">
           {loadingPercent}%
         </div>
