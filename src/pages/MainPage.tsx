@@ -10,6 +10,7 @@ export const MainPageContext = createContext<any>({});
 
 export default function MainPage() {
   const [navToggle, setNavToggle] = useState(true);
+  
 
   return (
     <MainPageContext.Provider value={{navToggle, setNavToggle}}>

@@ -4,28 +4,13 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
 import './LoadingStyles.css';
 import { MainPageContext } from './MainPage';
+import { useHistory } from "react-router-dom";
 
-function getWindowDimensions() {
-  const { innerWidth: width, innerHeight: height } = window;
-  return {
-    width,
-    height
-  };
-}
 export default function LockedPage() {
+  const history = useHistory();
   const [isLoading, SetIsLoading] = useState(true);
   const {setNavToggle} = useContext(MainPageContext);
   const [loadingPercent, SetLoadingPercent] = useState(0);
-  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
-
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions());
-    }
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
 
   useEffect(() => {
@@ -122,20 +107,14 @@ export default function LockedPage() {
       root!.removeChild( renderer.domElement );
     }
   }, []);
+
   return (
     <Fragment>
     {isLoading ? (
       <div className ="loadingPage">
-        <div className="circle">
-          <div className="up">
-            <div className="innera"></div>
-          </div>
-          <div className="down">
-            <div className="innerb"></div>
-          </div>
-        </div>
+          Please wait...
         <div className="loadingPercentage">
-          {loadingPercent}
+          {loadingPercent}%
         </div>
       </div>):(<div></div>)}
     </Fragment>
