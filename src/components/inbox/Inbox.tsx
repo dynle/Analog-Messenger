@@ -52,6 +52,7 @@ export default function Inbox(props: {writeMode: boolean}) {
   const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
   const classes = useStyles();
   const history = useHistory();
+  window.history.pushState(null, document.title, window.location.href);
 
   const handleLetterClicked = (index: number, opened: boolean) => {
     setLetterClicked(letters[index]);

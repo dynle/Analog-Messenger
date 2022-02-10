@@ -22,9 +22,14 @@ const theme = createMuiTheme({
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isDocExist, setIsDocExist] = useState(false);
+
+  window.history.pushState(null, document.title, window.location.href);
+  window.addEventListener('popstate', function(event) {
+    console.log(window.location.href, document.title);
+    window.history.pushState(null, document.title, window.location.href);
+  });
   
   useEffect(() => {
-    console.log("inside useEffect");
     const unsubscribe = authService.onAuthStateChanged(async (user) => {
       if (user) {
         setIsLoggedIn(true);

@@ -27,6 +27,7 @@ export default function Profile() {
   const classes = useStyles();
   const [requests, setRequests] = useState<FriendRequest[]>([]);
   const [friends, setFriends] = useState<Friend[]>([]);
+  window.history.pushState(null, document.title, window.location.href);
 
   useEffect(() => {
     const unsubRequests = onSnapshotFriendRequests(setRequests);
