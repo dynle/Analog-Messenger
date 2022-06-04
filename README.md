@@ -6,7 +6,7 @@
 <img width="1440" alt="Screen Shot 2022-06-04 at 4 55 04 PM" src="https://user-images.githubusercontent.com/36508771/171992363-e73bf278-23ab-4234-bda2-2003e9a13352.png">
 <img width="1436" alt="Screen Shot 2022-06-04 at 4 56 00 PM" src="https://user-images.githubusercontent.com/36508771/171992364-f0f7d391-2d66-43f0-995f-27a54ac9a0d2.png">
 
-A web-based messenger to send scheduled messages. The receivers cannot read locked messages until the time is up.
+A web-based messenger sending scheduled messages. The receivers cannot read locked messages until the time is up.
 
 You can set time up to 12 hours.
 
