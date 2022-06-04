@@ -25,6 +25,7 @@ https://analog-messenger-f2e31.web.app/
 * TypeScript
 * Firebase
 * Material UI
+* Vite
 
 ## About The Project
 
