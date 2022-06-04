@@ -13,6 +13,8 @@ You can set time up to 12 hours.
 You can send friend requests to all registered users, and see requests and accepts in real time.
 
 You can change your profile image, and changed profile image is reflected to all the pictures in other's letter box in real time. 
+
+‼️ Animation for locked letters is not completed.
  
 ## Link
 
