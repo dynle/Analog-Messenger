@@ -25,7 +25,6 @@ export default function LetterView(props: {
         <Box width="90%">
           <LetterToolbar letterClickedHandler={props.letterClickedHandler} currDoc={currDoc}/>
           <Box height={16} />
-          {/* LetterHeader */}
             <Box pl={4} pr={6}>
               <Typography variant="h3">{props.letter[0].title}</Typography>
             </Box>
@@ -34,7 +33,7 @@ export default function LetterView(props: {
             <Box p={1} display="flex">
               <Box p={1} flexGrow={1}>
                 <Avatar
-                    src={props.letter[2]}
+                    src={props.letter[2].avatarUrl}
                     style={{
                         width: 72,
                         height: 72,
