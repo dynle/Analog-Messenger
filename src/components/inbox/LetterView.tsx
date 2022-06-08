@@ -3,7 +3,7 @@ import { Avatar, Box, Typography } from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
 import LetterToolbar from "./LetterToolbar";
 import { Letter } from "../../entities/letter";
-import Timer from "../Timer";
+import Timer from "../timer/Timer";
 import { db, authService } from "../../fbase";
 
 export default function LetterView(props: {

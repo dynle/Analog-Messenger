@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React, {useState, useEffect} from 'react';
-import { db } from '../fbase'
+import { db } from '../../fbase'
 import Timer from "./Timer"
 
 function FetchDeliverTime() {
